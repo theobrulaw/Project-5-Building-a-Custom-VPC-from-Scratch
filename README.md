@@ -32,5 +32,4 @@ Describe how you confirmed the lab worked:
 
 ## Lessons Learned
 What worked well, what broke, and what you would do differently next time.
-# Project-5-Building-a-Custom-VPC-from-Scratch
-Designed and deployed a custom VPC with subnets, route tables, IGW, NACLs, and security groups for secure networking.
+
