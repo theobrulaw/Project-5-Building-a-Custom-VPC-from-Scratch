@@ -1,76 +1,56 @@
 # Ubuntu Installation on VirtualBox
 
 ## Objective
-Objective
-By the end of this lab, you will:
-Create and configure an S3 bucket for static website hosting.
-Upload HTML and other website assets.
-Make your site publicly accessible using Bucket Policies.
-Test your site via the S3 website endpoint.
-(Optional) Configure a custom domain using Amazon Route 53.
+Install Ubuntu Linux on Oracle VirtualBox and configure a stable base system
+suitable for learning Linux administration, cloud operations, and DevOps
+fundamentals. This lab establishes the foundation for all subsequent Linux,
+cloud, and security exercises.
+
+---
+
+## Architecture / Environment Overview
+
+- Host OS: Windows or macOS
+- Hypervisor: Oracle VirtualBox
+- Guest OS: Ubuntu Server LTS
+- VM Type: Single virtual machine
+- Networking Mode: NAT
+- Purpose: Local, isolated lab environment
+
+This setup mirrors how Linux systems are commonly provisioned as virtual
+machines in cloud and enterprise environments.
 
 ---
 
 ## Prerequisites
 
-1. An AWS account (Free Tier eligible).
-2. IAM user with AmazonS3FullAccess.
-3. AWS CLI configured (aws configure).
-
-A simple website folder on your local system:
-
- website/
-├── index.html
-└── error.html
-Example content for testing:
- index.html
-<!DOCTYPE html>
-<html>
-  <head><title>Welcome to My S3 Website</title></head>
-  <body>
-    <h1>Hello from S3!</h1>
-    <p>This website is hosted entirely on Amazon S3.</p>
-  </body>
-</html>
-
-error.html
-<!DOCTYPE html>
-<html>
-  <head><title>Page Not Found</title></head>
-  <body>
-    <h1>404 - Page Not Found</h1>
-    <p>Sorry, the page you requested does not exist.</p>
-  </body>
-</html>
+- Oracle VirtualBox installed
+- Ubuntu Server LTS ISO downloaded
+- At least:
+  - 4 GB RAM available on host
+  - 2 CPU cores
+  - 25 GB free disk space
+- Basic familiarity with command-line navigation (helpful but not required)
 
 ---
 
 ## Steps Performed
 
-### Step 1: Create an S3 Bucket
-Using AWS Console:
-1. Go to the Amazon S3 Console.
-2. Click “Create bucket”.
-
-Enter a unique bucket name:
- my-static-website-damian
-3. ⚠️ Bucket names must be globally unique and DNS-compliant.
-4. Choose your AWS region (e.g., us-east-1).
-5. Uncheck “Block all public access” since websites need to be publicly accessible.
-6. Confirm the warning and proceed.
-7. Click Create bucket.
+### 1. Create a New Virtual Machine
+- Open VirtualBox and select **New**
+- Name the VM (e.g., `Ubuntu-Lab`)
+- Type: Linux
+- Version: Ubuntu (64-bit)
+- Allocate:
+  - Memory: 2048–4096 MB
+  - CPUs: 2
 
 ---
 
-### Step 2: Upload Website Files
-1. Click your newly created bucket.
-2. Select Upload → Add files.
-3. Upload both:
--index.html
--error.html
-4. Click Upload.
-
-Your files will now appear in the bucket.
+### 2. Configure Virtual Disk
+- Disk type: VDI
+- Allocation: Dynamically allocated
+- Size: 25 GB
 
 ---
 
@@ -150,8 +130,5 @@ Optional validation:
 
 This Ubuntu VM will serve as the base system for networking, security
 hardening, automation, and cloud-related exercises.
-
-
-
 
 
