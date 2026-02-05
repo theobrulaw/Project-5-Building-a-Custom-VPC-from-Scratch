@@ -20,5 +20,5 @@ The environment consists of:
 
 ### Content Delivery Flow
 
-
+User → Route 53 → CloudFront → S3 Bucket
 
