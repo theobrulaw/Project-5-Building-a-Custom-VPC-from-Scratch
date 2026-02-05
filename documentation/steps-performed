@@ -1,1 +1,157 @@
-place holders
+# Ubuntu Installation on VirtualBox
+
+## Objective
+Objective
+By the end of this lab, you will:
+Create and configure an S3 bucket for static website hosting.
+Upload HTML and other website assets.
+Make your site publicly accessible using Bucket Policies.
+Test your site via the S3 website endpoint.
+(Optional) Configure a custom domain using Amazon Route 53.
+
+---
+
+## Prerequisites
+
+1. An AWS account (Free Tier eligible).
+2. IAM user with AmazonS3FullAccess.
+3. AWS CLI configured (aws configure).
+
+A simple website folder on your local system:
+
+ website/
+├── index.html
+└── error.html
+Example content for testing:
+ index.html
+<!DOCTYPE html>
+<html>
+  <head><title>Welcome to My S3 Website</title></head>
+  <body>
+    <h1>Hello from S3!</h1>
+    <p>This website is hosted entirely on Amazon S3.</p>
+  </body>
+</html>
+
+error.html
+<!DOCTYPE html>
+<html>
+  <head><title>Page Not Found</title></head>
+  <body>
+    <h1>404 - Page Not Found</h1>
+    <p>Sorry, the page you requested does not exist.</p>
+  </body>
+</html>
+
+---
+
+## Steps Performed
+
+### Step 1: Create an S3 Bucket
+Using AWS Console:
+1. Go to the Amazon S3 Console.
+2. Click “Create bucket”.
+
+Enter a unique bucket name:
+ my-static-website-damian
+3. ⚠️ Bucket names must be globally unique and DNS-compliant.
+4. Choose your AWS region (e.g., us-east-1).
+5. Uncheck “Block all public access” since websites need to be publicly accessible.
+6. Confirm the warning and proceed.
+7. Click Create bucket.
+
+---
+
+### Step 2: Upload Website Files
+1. Click your newly created bucket.
+2. Select Upload → Add files.
+3. Upload both:
+-index.html
+-error.html
+4. Click Upload.
+
+Your files will now appear in the bucket.
+
+---
+
+### 3. Attach Ubuntu ISO
+- Select the VM → **Settings**
+- Go to **Storage**
+- Attach the Ubuntu Server ISO to the optical drive
+
+---
+
+### 4. Install Ubuntu
+- Start the VM
+- Select language and keyboard layout
+- Configure networking (default DHCP via NAT)
+- Skip proxy unless required
+- Use default mirror settings
+- Partition disk using guided setup
+- Create:
+  - Username
+  - Strong password
+- Select OpenSSH server during installation
+- Complete installation and reboot
+- Remove ISO when prompted
+
+---
+
+### 5. Log In and Update System
+After reboot, log in and run:
+
+```bash
+sudo apt update && sudo apt upgrade -y
+# Lab Title
+
+## Objective
+Briefly describe what this lab demonstrates and why it matters in a real-world
+cloud, DevOps, or security context.
+
+## Architecture / Environment Overview
+Describe the environment, services, VMs, networking mode, or cloud components
+used in this lab.
+
+## Prerequisites
+- Tools required
+- Accounts or access needed
+- Prior knowledge assumed
+
+## Steps Performed
+1. Step-by-step actions taken
+2. Commands executed or configurations applied
+3. Key decisions or trade-offs made
+
+## Validation & Verification
+Successful installation is confirmed by:
+- System boots without errors
+- User can log in locally
+- Network interface receives an IP address
+- Internet connectivity confirmed via package updates
+- Ubuntu version and kernel information displayed correctly
+
+Optional validation:
+- SSH access enabled
+- Snapshot created in VirtualBox for rollback
+
+## Security & Operational Considerations
+- A non-root user account is used with sudo privileges
+- System packages are fully updated
+- SSH service enabled for remote access (to be hardened in later labs)
+- NAT networking limits exposure to external networks
+- Snapshots provide quick recovery and change tracking
+
+## Lessons Learned
+- Ubuntu installation is straightforward but requires attention to resource
+  allocation for smooth performance
+- Enabling SSH during installation simplifies remote management
+- NAT networking is ideal for early labs due to simplicity and isolation
+- Creating a clean baseline VM makes future labs faster and more consistent
+
+This Ubuntu VM will serve as the base system for networking, security
+hardening, automation, and cloud-related exercises.
+
+
+
+
+
