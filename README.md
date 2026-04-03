@@ -127,3 +127,4 @@ Project 6 Hosting a Static Website/
 # Project 6 Hosting a Static Website
 Hosted a static website using S3, Route 53, and CloudFront with SSL for cost-effective, secure delivery.
 
+Slight Mod
